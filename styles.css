@@ -1,0 +1,136 @@
+nav {
+  display: block;
+}
+*{
+margin-top: 0;
+width: 100%;
+}
+.Top-Section{
+background-color: #973a3a !important;
+color:aliceblue;
+display:flex;
+justify-content: space-between;
+top:0px;
+position: fixed;
+width: 100%;
+margin-left: 0;
+z-index: 999;
+padding: 30px;
+
+}
+.Project-Section{
+  display: flex;
+}
+.Project-Section h1{
+  color: aliceblue;
+  margin-top: 50px;
+  text-align: center;
+}
+.Functionalities a{
+  color: aliceblue;
+  padding-top: 100px;
+  padding-left:50px ;
+  text-decoration: none;   /*removes text decleration beacuse of a tag*/
+  font-size: large;
+  
+}
+.Project-Title a{
+  color: aliceblue;
+  padding-top: 0px;
+  padding-right: 120px;
+  text-decoration: none;  /*removes text decleration beacuse of a tag*/
+  font-size: xx-large;
+  padding-left: 100px;
+
+}
+body{
+  background-color: #3c1d1df4 !important;
+     margin: 0;
+    padding: 0;
+
+}
+.Image{
+      margin: 100px auto;
+      margin-bottom: 0px;
+      max-width: 900px;
+      padding-bottom: 0px;
+      padding: 50px;
+      border-radius: 25px;
+    }
+
+  .quote h2{
+    color: aliceblue;
+    margin-left: 380px;
+    margin-top: 0px;
+
+  }
+  .Image img{
+    border-radius: 50px;
+  }
+  .quote{
+    padding-top: 10px;
+  }
+  .movies{
+    display: flex;
+  }
+  .movies img{
+    width:700px;
+    height: 400px;
+    margin: 60px;
+    border-radius: 15px;
+
+  }
+  .movies h6{
+    margin-top: 100px;
+    font-size: small;
+    color: aliceblue;
+  }
+      .simple-footer {
+      background-color: #973a3a;
+      color: #fff1f1;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+    }
+
+
+.slides {
+  height: 100vh;
+  overflow-y: scroll;         /* vertical scroll inside wrapper */
+  scroll-snap-type: y mandatory;  /* <-- key property */
+}
+
+.slide {
+  height: 100vh;              /* each takes full viewport height */
+  scroll-snap-align: start;   /* locks when slide top hits viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.slides {
+  scroll-behavior: smooth;
+}
+
+
+
+
+/*Mobile View*/
+@media (max-width: 600px) {
+    .Top-Section {
+        flex-direction: column;        /* stack title and links */
+        align-items: flex-start;
+    }
+
+    .Functionalities {
+        display: flex;
+        flex-direction: column;        /* stack the links vertically */
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .Functionalities a {
+        margin: 0.25rem 0;             /* vertical spacing */
+    }
+}
