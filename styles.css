@@ -10,9 +10,12 @@ nav {
 box-sizing: border-box;
 
 }
+
+
 .Top-Section{
-background-color: #973a3a !important;
+background-color: #4B5563 !important;
 color:aliceblue;
+border-color: aliceblue;
 display:flex;
 justify-content: space-between;
 top:0px;
@@ -21,6 +24,7 @@ width: 100%;
 margin-left: 0;
 z-index: 999;
 padding: 30px;
+border-bottom: 2px solid #d8d8d8;
 
 }
 .Project-Section{
@@ -39,8 +43,15 @@ padding: 30px;
   padding-left:50px ;
   text-decoration: none;   /*removes text decleration beacuse of a tag*/
   font-size: large;
+
+  
   
 }
+.Functionalities img{
+  width: 1vw;
+  height: 1vh;
+}
+
 .Project-Title a{
   color: aliceblue;
   padding-top: 0px;
@@ -51,7 +62,7 @@ padding: 30px;
 
 }
 body{
-  background-color: #3c1d1df4 !important;
+  background-color:#6B7280 !important;
      margin: 0;
     padding: 0;
 
@@ -78,6 +89,7 @@ body{
     overflow: hidden;
     width: 80vw;
     height: 70vh;
+   
   }
   .quote{
     padding-top: 10px;
@@ -92,6 +104,7 @@ body{
     height: 400px;
     margin: 45px;
     border-radius: 15px;
+    background-color: bisque;
 
   }
       iframe {
@@ -122,7 +135,7 @@ body{
   }
       .simple-footer {
       width: 100vw;
-      background-color: #973a3a;
+      background-color:#4B5563;
       color: #fff1f1;
       text-align: center;
       padding: 15px 10px;
