@@ -169,24 +169,106 @@ body{
 
   box-sizing: border-box;
 }
+/* default: show links, hide button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: aliceblue;
+  cursor: pointer;
+}
+.Functionalities {
+  display: flex;
+  gap: 2rem;          /* space between links */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Functionalities li {
+  list-style: none;
+}
+
+.Functionalities a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: large;
+}
 
 
+/* mobile view */
+.Top-Section {
+  background: #4B5563;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem;
+  z-index: 999;
+  border-bottom: 2px solid #d8d8d8;
+}
 
-/*Mobile View*/
+/* hamburger button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+/* desktop menu */
+.Functionalities {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Functionalities a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: large;
+}
+
+/* mobile menu */
 @media (max-width: 600px) {
     .Top-Section {
-        flex-direction: column;        /* stack title and links */
-        align-items: flex-start;
-    }
+    flex-direction: column;   /* stack logo + hamburger + menu vertically */
+    align-items: flex-start;  /* align items to left */
+    padding: 1rem;
+  }
+  .menu-toggle {
+    display: block;
+    margin-left: 1rem;    /* no auto */
+  }
 
-    .Functionalities {
-        display: flex;
-        flex-direction: column;        /* stack the links vertically */
-        width: 100%;
-        margin-top: 0.5rem;
-    }
+  .Functionalities {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #4B5563;
+    width: 100%;
+    padding: 1rem;
+  }
 
-    .Functionalities a {
-        margin: 0.25rem 0;             /* vertical spacing */
-    }
+  .Functionalities.show {
+    display: flex;
+  }
+
+  .Functionalities a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
 }
+
+
+
