@@ -1,15 +1,22 @@
 html,body{
   margin: 0;
   padding: 0; 
+}/*This one is like for main html and body*/
+body, ul, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
 }
 
 nav {
   display: block;
-}
+}/*This states css about naviagtion bar*/
+
 *{
 box-sizing: border-box;
+margin: 0%
 
-}
+
+}/*for entire website*/
 
 
 .Top-Section{
@@ -25,18 +32,25 @@ margin-left: 0;
 z-index: 999;
 padding: 30px;
 border-bottom: 2px solid #d8d8d8;
-
 }
+.Top-Section a{
+ margin-left: 0%;
+ 
+}
+
+
 .Project-Section{
   text-align: center;
   display: flex;
 }
+
 .Project-Section h1{
   color: aliceblue;
   margin-top: 50px;
   text-align: center;
-  margin-left: 45vw;
+  margin-left: 45vw; 
 }
+
 .Functionalities a{
   color: aliceblue;
   padding-top: 100px;
@@ -50,6 +64,7 @@ border-bottom: 2px solid #d8d8d8;
 .Functionalities img{
   width: 1vw;
   height: 1vh;
+  align-items: center;
 }
 
 .Project-Title a{
@@ -58,7 +73,7 @@ border-bottom: 2px solid #d8d8d8;
   padding-right: 120px;
   text-decoration: none;  /*removes text decleration beacuse of a tag*/
   font-size: xx-large;
-  padding-left: 100px;
+  text-align: left;
 
 }
 body{
@@ -77,25 +92,35 @@ body{
       display: flex;
 
     }
-
-  .quote h2{
-    color: aliceblue;
-    margin-left: 380px;
-    margin-top: 0px;
-
-  }
-  .Image img{
+.Image img{
     border-radius: 50px;
     overflow: hidden;
     width: 80vw;
     height: 70vh;
+    align-items: center;
    
-  }
-  .quote{
+}
+    .quote{
     padding-top: 10px;
+    
   }
+
+  .quote h2{
+    color: aliceblue;
+    margin:center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0px;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  }
+
   .movies{
     display: flex;
+    flex-direction: row;
 
      
   }
@@ -107,16 +132,23 @@ body{
     background-color: bisque;
 
   }
+
+    .movies h6{
+
+    font-size: small;
+    color: aliceblue;
+  }
+
       iframe {
       width: 100%;
       height: 100%;
     }
+
     .info h6{
       display: flex;
       color: aliceblue;
       margin-left: 35px;
       margin-bottom: 100px;
-
 
     }
   .ytplayer{
@@ -128,11 +160,7 @@ body{
       display: flex;
       margin: auto;
   }
-  .movies h6{
-    margin-top: 100px;
-    font-size: small;
-    color: aliceblue;
-  }
+
       .simple-footer {
       width: 100vw;
       background-color:#4B5563;
@@ -141,7 +169,13 @@ body{
       padding: 15px 10px;
       font-size: 14px;
     }
+.slide {
+  height: 100vh;              /* each takes full viewport height */
+  scroll-snap-align: start;   /* locks when slide top hits viewport */
+  justify-content: center;
 
+
+}
 
 .slides {
   height: 100vh;
@@ -151,14 +185,7 @@ body{
   justify-content: space-around;
 }
 
-.slide {
-  height: 100vh;              /* each takes full viewport height */
-  scroll-snap-align: start;   /* locks when slide top hits viewport */
 
-  justify-content: center;
-
-
-}
 
 .slides > section:last-child {
   height: calc(20px);
@@ -239,7 +266,40 @@ body{
 }
 
 /* mobile menu */
-@media (max-width: 600px) {
+@media (max-width: 1157px) {
+  .Project-Title a{
+  color: aliceblue;
+  padding-top: 0px;
+  padding-right: 120px;
+  text-decoration: none;  /*removes text decleration beacuse of a tag*/
+  font-size: auto;
+  text-align: left;
+
+}
+      iframe {
+      width: 100%;
+      height: 40%;
+      margin:auto;    /* center box horizontally */
+      overflow: hidden;
+      display: flex;
+     
+    }
+button{
+  background-color: red;
+  color: white;
+
+  border-radius: 15px;
+}
+  .movies img{
+    max-width: 200px;
+    max-height: 200px;
+  }
+  .movies{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5vh;
+  }
     .Top-Section {
     flex-direction: column;   /* stack logo + hamburger + menu vertically */
     align-items: flex-start;  /* align items to left */
@@ -262,6 +322,12 @@ body{
   .Functionalities.show {
     display: flex;
   }
+  .Project-Section h1{
+  color: aliceblue;
+  margin-top: 50px;
+  text-align: center;
+ 
+}
 
   .Functionalities a {
     display: block;

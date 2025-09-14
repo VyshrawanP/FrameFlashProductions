@@ -10,13 +10,19 @@
 
     <nav class="Top-Section">
         <div class="Project-Title">
+            <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+
             <a href="/">FrameFlashProductions</a> 
         </div>
-        <div class="Functionalities">
-                 <a class="nav-item nav-link" href="/index.html">Home</a> 
-            <a class="nav-item nav-link" href="/about.html">About Us</a> 
-            <a class="nav-item nav-link" href="/contact.html">Contact Us</a>
-            <a class="nav-item nav-link" href="/privacypolicy.html">Privacy Policy</a>
+        <div class="Functionalities1">
+            <ul class="Functionalities">
+  <li><a href="/index.html">Home</a></li>
+  <li><a href="/about.html">About Us</a></li>
+  <li><a href="/contact.html">Contact Us</a></li>
+  <li><a href="/privacypolicy.html">Privacy Policy</a></li>
+</ul>
+
+            
         </div>
     </nav>
     <main class="slides">
@@ -41,7 +47,11 @@
     <p>Contact: support@frameflash_productions.com</p>
   </footer>
   </section>
-  </main>
+  </main><script>
+const toggleBtn = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".Functionalities");
+toggleBtn.addEventListener("click", ()=> menu.classList.toggle("show"));
+</script>
 
     </body>
     </html>
