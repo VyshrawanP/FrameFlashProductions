@@ -116,14 +116,20 @@ body{
 
   }
 
-  }
+  
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: aliceblue;
+  border-radius: 2px;
+  transition: all 0.3s ease;   /* Smooth animation */
+}
 
   .movies{
     display: flex;
-    flex-direction: row;
-
-     
   }
+
   .movies img{
     width:700px;
     height: 400px;
@@ -133,7 +139,7 @@ body{
 
   }
 
-    .movies h6{
+    .info h6{
 
     font-size: small;
     color: aliceblue;
