@@ -20,7 +20,7 @@ margin: 0%
 
 
 .Top-Section{
-background-color: #4B5563 !important;
+background-color: rgb(25,25,25) !important;
 color:aliceblue;
 border-color: aliceblue;
 display:flex;
@@ -77,7 +77,7 @@ border-bottom: 2px solid #d8d8d8;
 
 }
 body{
-  background-color:#6B7280 !important;
+  background-color:rgb(14,14,14) !important;
      margin: 0;
     padding: 0;
 
@@ -95,7 +95,7 @@ body{
 .Image img{
     border-radius: 50px;
     overflow: hidden;
-    width: 80vw;
+    width: 70vw;
     height: 70vh;
     align-items: center;
    
@@ -117,14 +117,6 @@ body{
   }
 
   
-.menu-toggle span {
-  display: block;
-  height: 4px;
-  width: 100%;
-  background: aliceblue;
-  border-radius: 2px;
-  transition: all 0.3s ease;   /* Smooth animation */
-}
 
   .movies{
     display: flex;
@@ -133,16 +125,17 @@ body{
   .movies img{
     width:700px;
     height: 400px;
-    margin: 45px;
+    margin: 10px;
     border-radius: 15px;
     background-color: bisque;
 
   }
 
     .info h6{
-
+    justify-content: center;
     font-size: small;
     color: aliceblue;
+    margin-top: 5vh;
   }
 
       iframe {
@@ -150,13 +143,7 @@ body{
       height: 100%;
     }
 
-    .info h6{
-      display: flex;
-      color: aliceblue;
-      margin-left: 35px;
-      margin-bottom: 100px;
 
-    }
   .ytplayer{
       width: 90vw;         /* box width */
       height: 75vh;        /* box height */
@@ -169,7 +156,7 @@ body{
 
       .simple-footer {
       width: 100vw;
-      background-color:#4B5563;
+      background-color:rgb(25,25,25);
       color: #fff1f1;
       text-align: center;
       padding: 15px 10px;
@@ -233,7 +220,7 @@ body{
 
 /* mobile view */
 .Top-Section {
-  background: #4B5563;
+  background: rgb(25,25,25);
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -293,12 +280,11 @@ body{
 button{
   background-color: red;
   color: white;
-
   border-radius: 15px;
 }
   .movies img{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 350px;
+    max-height: 320px;
   }
   .movies{
     display: flex;
@@ -320,7 +306,7 @@ button{
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    background: #4B5563;
+    background: rgb(25,25,25);
     width: 100%;
     padding: 1rem;
   }

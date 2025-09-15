@@ -28,13 +28,14 @@
     <div class="Project-Section"><h1>Our Projects</h1></div>
     <section class="slide">
     <div class="movies">
-    <img src="/logos/grey.jpg">  
+    <img src="/logos/grey.jpg">  <div class="info">
         <h6>GREY is a heartfelt new short from FrameFlash Productions — an intimate journey into life’s quiet contrasts.
 Written and directed by Jayanth, from a story by K Venu, the film stars Arpit Patel and Lalith Chandra, with moving performances supported by K Venu and Hrishi Koushal.
 Visual storytelling comes alive through the cinematography of Amrith Ashok, while Mitesh Sai Devar brings precision to editing and SFX. Stunning graphics by Rhythm complete the experience.
 A true FrameFlash Productions Original, GREY invites you to discover the colours hidden within the shade.
 Follow us on Instagram @frameflash_productions
  — and join the conversation: #GREY #FrameFlashProductions #ColourWithinGrey</h6>
+    </div>
     </div>
           <div class="info">
         <h6>Step into the story of “GREY”<br>
@@ -68,6 +69,11 @@ A heartfelt FrameFlash Productions Original
   </footer>
   </section>
   </main>
+  <script>
+const toggleBtn = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".Functionalities");
+toggleBtn.addEventListener("click", ()=> menu.classList.toggle("show"));
+</script>
 
     </body>
     </html>
