@@ -7,6 +7,56 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="mobstyle.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+-shadow: 0 4px 8px rgba(0,0,0,0.1);
+body {
+font-family: Arial, sans-serif;
+background-color: #f9f9f9;
+margin: 0;
+padding: 0;
+}
+.container {
+max-width: 800px;
+margin: 50px auto;
+padding: 20px;
+background: #dd8b8b;
+border-radius: 10px;
+box-shadow: 0 4px 8px #ffffff1a;
+}
+h1 {
+text-align: center;
+margin-bottom: 20px;
+color: #ffffff;
+}
+.info {
+margin-bottom: 30px;
+line-height: 1.8;
+color: #555;
+}
+form {
+display: flex;
+flex-direction: column;
+}
+input, textarea {
+margin-bottom: 15px;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+}
+button {
+padding: 12px;
+background-color: #bbdcff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+button:hover {
+background-color: #366ca7;
+}
+</style>
     </head>
     <body>
 
@@ -40,8 +90,24 @@
     
        
         <section class="slide">
-             <div class="Project-Section"><h1>Contact Us</h1></div>
+            <div class="container">
+<h1>Contact Us</h1>
+<div class="info">
+<p>📧 <strong>Email:</strong> support@frameflash_productions.com</p>
+<p>📞 <strong>Phone:</strong> +91-XXXXX-XXXXX</p>
+<p>📍 <strong>Address:</strong> VIT-AP University, Amaravati, Andhra Pradesh</p>
+<p>Or, simply fill out the form below and we’ll get back to you shortly.</p>
+</div>
+
+             <form action="#" method="post">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
         </section>
+
  
  <section class="class">
   <footer class="simple-footer">

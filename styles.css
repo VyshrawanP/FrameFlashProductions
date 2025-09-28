@@ -61,6 +61,14 @@ border-bottom: 2px solid #d8d8d8;
   
   
 }
+.image img{
+  margin-left: 10vh;
+  margin-top: 10vh;
+  border-radius: 5px;
+  width: 13vw;
+  height: 17vh;
+  align-items: center;
+}
 .Functionalities img{
   width: 1vw;
   height: 1vh;
@@ -216,10 +224,34 @@ body{
   text-decoration: none;
   font-size: large;
 }
-.iconm img{
-
-
+.team-info{
+  display: flex;
 }
+    .about-box1{
+      margin-left: 10vw;
+      margin-right: 20vw;
+      margin-top: 10vh;
+      width: 60vw;            /* width of the box */
+      padding: 20px; 
+      text-align: center;          /* space inside */
+      border: 2px solid #333;  /* border color and thickness */
+      border-radius: 8px;      /* rounded corners */
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .about-box  {
+      margin-left: 20vw;
+      margin-right: 20vw;
+      width: 60vw;            /* width of the box */
+      padding: 20px; 
+      text-align: center;          /* space inside */
+      border: 2px solid #333;  /* border color and thickness */
+      border-radius: 8px;      /* rounded corners */
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
 .fa {
   padding: 20px;
   font-size: 50px;
