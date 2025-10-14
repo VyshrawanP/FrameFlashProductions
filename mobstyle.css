@@ -13,7 +13,8 @@ body, ul, h1, h2, h3, p {
   align-items: center;
   color: aliceblue;
   padding-top: 0px;
-  margin-left: 0px;
+  margin-left: 3px;
+
   text-decoration: none;  /*removes text decleration beacuse of a tag*/
    font-size: 1.4rem;
   text-align: left;
