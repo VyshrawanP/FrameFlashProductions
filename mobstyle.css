@@ -3,6 +3,7 @@
   html,body{
   margin: 0;
   padding: 0; 
+  overflow-x: hidden;
 }/*This one is like for main html and body*/
 body, ul, h1, h2, h3, p {
   margin: 0;
@@ -35,15 +36,15 @@ body, ul, h1, h2, h3, p {
   border-radius: 5px;
   width: 19vw;
   height: 15vh;
-  align-items: center;
+  margin-left: 4px;
+
 }
     .about-box  {
-            /* width of the box */
-            margin-top: 5vh;
-      padding: 20px; 
+    
+      margin-top: 5vh;
+      padding: 10px; 
       text-align: center;          /* space inside */
       border: 2px solid #333;  /* border color and thickness */
-/* rounded corners */
       background-color: #f9f9f9;
       font-family: Arial, sans-serif;
       box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
@@ -63,7 +64,7 @@ button{
 }
   .movies img{
     max-width: 350px;
-    max-height: 320px;
+    max-height: 300px;
   }
   .movies{
     display: flex;
