@@ -1,5 +1,13 @@
 /* mobile menu */
 @media (max-width: 1157px) {
+  html,body{
+  margin: 0;
+  padding: 0; 
+}/*This one is like for main html and body*/
+body, ul, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
   .Project-Title a{
 
   align-items: center;
@@ -7,7 +15,7 @@
   padding-top: 0px;
   margin-left: 0px;
   text-decoration: none;  /*removes text decleration beacuse of a tag*/
-  font-size: 1.9rem;
+  font-size: auto;
   text-align: left;
 
 }
@@ -22,8 +30,7 @@
 
 }
 .image img{
-  margin-left: 5vh;
-  margin-top: 10vh;
+
   border-radius: 5px;
   width: 19vw;
   height: 15vh;
@@ -66,7 +73,7 @@ button{
     .Top-Section {
     flex-direction: column;   /* stack logo + hamburger + menu vertically */
     align-items: flex-start;  /* align items to left */
-    padding: 1rem;
+    padding-right: 1rem;
   }
   .menu-toggle {
     display: block;
