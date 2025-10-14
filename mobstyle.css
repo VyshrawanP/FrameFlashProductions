@@ -64,7 +64,7 @@ button{
 }
   .movies img{
     max-width: 350px;
-    max-height: 300px;
+    max-height: 250px;
   }
   .movies{
     display: flex;
