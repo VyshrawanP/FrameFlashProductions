@@ -69,6 +69,17 @@ border-bottom: 2px solid #d8d8d8;
   
   
 }
+.banner{
+  justify-content: center;
+  margin-left: 25vw;
+  margin-top: 20vh;
+}
+.banner img{
+  max-width: 90vw;
+  max-height: 15vh;
+  justify-content: center;
+
+}
 .image img{
   margin-left: 10vh;
   margin-top: 10vh;
@@ -100,9 +111,9 @@ body{
 
 }
 .Image{
-      margin: 100px auto;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 0px;
-      max-width: 85vw;
       padding-bottom: 0px;
       padding: 50px;
       border-radius: 25px;
@@ -110,23 +121,24 @@ body{
 
     }
 .Image img{
+  justify-content: center;
     border-radius: 50px;
     overflow: hidden;
-    width: 70vw;
-    height: 70vh;
+    width: 50vw;
+    height: 50vh;
     align-items: center;
    
 }
     .quote{
     padding-top: 10px;
+    justify-content: center;
     
   }
 
   .quote h2{
     color: aliceblue;
     margin:center;
-    padding-left: 10px;
-    padding-right: 10px;
+    justify-content: center;
     margin-top: 0px;
     align-items: center;
     text-align: center;
