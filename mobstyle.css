@@ -1,9 +1,20 @@
 /* mobile menu */
 @media (max-width: 1157px) {
   .Project-Title a{
+
+    align-items: center;
   color: aliceblue;
   padding-top: 0px;
-  padding-right: 120px;
+
+  text-decoration: none;  /*removes text decleration beacuse of a tag*/
+  font-size: auto;
+  text-align: left;
+
+}
+  .Project-Title {
+  display: flex;
+  align-items: center;
+  color: aliceblue;
   text-decoration: none;  /*removes text decleration beacuse of a tag*/
   font-size: auto;
   text-align: left;
@@ -14,11 +25,12 @@
   margin-top: 10vh;
   border-radius: 5px;
   width: 19vw;
-  height: 17vh;
+  height: 15vh;
   align-items: center;
 }
     .about-box  {
             /* width of the box */
+            margin-top: 5vh;
       padding: 20px; 
       text-align: center;          /* space inside */
       border: 2px solid #333;  /* border color and thickness */
@@ -73,9 +85,10 @@ button{
     display: flex;
   }
   .Project-Section h1{
+  margin-left: 35vw;
   color: aliceblue;
   margin-top: 50px;
-  text-align: center;
+
  
 }
 

@@ -76,6 +76,7 @@ border-bottom: 2px solid #d8d8d8;
 }
 
 .Project-Title a{
+  display: flex;
   color: aliceblue;
   padding-top: 0px;
   padding-right: 120px;
