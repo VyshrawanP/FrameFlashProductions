@@ -15,7 +15,7 @@ body, ul, h1, h2, h3, p {
   padding-top: 0px;
   margin-left: 0px;
   text-decoration: none;  /*removes text decleration beacuse of a tag*/
-  font-size: auto;
+   font-size: 1.4rem;
   text-align: left;
 
 }
@@ -24,7 +24,7 @@ body, ul, h1, h2, h3, p {
   align-items: center;
   color: aliceblue;
   text-decoration: none;  /*removes text decleration beacuse of a tag*/
-  font-size: auto;
+ 
   text-align: left;
   margin-left: 0px;
 
