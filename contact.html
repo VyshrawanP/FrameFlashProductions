@@ -1,120 +1,367 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — FrameFlash Productions</title>
 
-        <title>FrameFlashProductions</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="mobstyle.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
--shadow: 0 4px 8px rgba(0,0,0,0.1);
-body {
-font-family: Arial, sans-serif;
-background-color: #f9f9f9;
-margin: 0;
-padding: 0;
-}
-.container {
-max-width: 800px;
-margin: 50px auto;
-padding: 20px;
-background: #f1f1f1;
-border-radius: 10px;
-box-shadow: 0 4px 8px #ffffff1a;
-}
-h1 {
-text-align: center;
-margin-bottom: 20px;
-color: #000000;
-}
-.info {
-margin-bottom: 30px;
-line-height: 1.8;
-color: #555;
-}
-form {
-display: flex;
-flex-direction: column;
-}
-input, textarea {
-margin-bottom: 15px;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-font-size: 16px;
-}
-button {
-padding: 12px;
-background-color: #bbdcff;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-font-size: 16px;
-}
-button:hover {
-background-color: #366ca7;
-}
-</style>
-    </head>
-    <body>
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <nav class="Top-Section">
-        <div class="Project-Title">
-            <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+  <style>
 
-            <a href="/">FrameFlashProductions</a> 
-        </div>
-        <div class="Functionalities1">
-            <ul class="Functionalities">
-  <li><a href="/index.html">Home</a></li>
-  <li><a href="/about.html">About Us</a></li>
-  <li><a href="/contact.html">Contact Us</a></li>
-  <li><a href="/privacypolicy.html">Privacy Policy</a></li>
-</ul>
 
-            
-        </div>
-    </nav>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f5f5f5;
+      --muted: #9a9a9a;
+      --ease: cubic-bezier(0.19, 1, 0.22, 1);
+    }
 
-    ----<br>----
-       
-        <section class="slide">
-            <div class="container">
-<h1>Contact Us</h1>
-<div class="info">
-    <p><b>We welcome inquiries, collaborations, and professional connections. Please use the channels below
-to get in touch with us.</b></p>
-<p>📧 <strong>Email:</strong> frameflash.productions@gmail.com</p>
-<p>📞 <strong>Instagram:</strong> @frameflash_productions</p>
-<p>📍 <strong>Address:</strong> VIT-AP University, Amaravati, Andhra Pradesh</p>
-<p>Our team strives to respond promptly. Follow us on Instagram to explore our latest projects, behind-
-the-scenes insights, and creative updates.</p>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ================= NAV ================= */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 22px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    /* SMOKE */
+#smoke {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(40px);
+  opacity: .3;
+}
+
+/* NAV MUST STAY ABOVE EVERYTHING */
+header {
+  position: fixed;
+  z-index: 20;
+}
+
+/* MAIN CONTENT LAYER */
+main,
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+
+    .brand {
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .desktop-nav a {
+      margin-left: 32px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .desktop-nav a:hover {
+      color: var(--fg);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--fg);
+      cursor: pointer;
+    }
+
+    /* ================= MOBILE MENU ================= */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: #111;
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      transform: translateX(100%);
+      transition: transform 0.8s var(--ease);
+      z-index: 200;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s var(--ease);
+      z-index: 150;
+    }
+
+    .menu-overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      padding-top: 160px;
+      padding-bottom: 120px;
+      max-width: 900px;
+      margin: auto;
+      padding-inline: 20px;
+      text-align: center;
+    }
+
+    .contact h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 80px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s var(--ease);
+    }
+
+    .contact-grid.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-item b {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--fg);
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      header {
+        padding: 20px 30px;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+        .brand img{
+      width: 70px;
+      height: 70px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+<header>
+   <div class="brand">
+    <img src="/logos/fflogo.png">
+  </div>
+  <nav class="desktop-nav">
+    <a href="/index.html">Home</a>
+    <a href="/project.html">Projects</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacypolicy.html">Privacy</a>
+  </nav>
+
+  <button class="menu-btn">☰</button>
+</header>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacypolicy.html">Privacy</a>
 </div>
+<div class="menu-overlay"></div>
 
-</div>
-        </section>
+<section class="contact">
+  <h1>Contact</h1>
+  <p>
+    We welcome inquiries, collaborations, and professional connections.
+    Use the channels below to get in touch with us.
+  </p>
 
- 
- <section class="class">
-  <footer class="simple-footer">
-    <p>&copy; 2025 FrameFlashProductions | Where Ideas Become Motion.</p>
-    <p>Contact: support@frameflash_productions.com</p>
-    <div class="iconm">
-    <a href="" class="fa fa-facebook"></a>
-    <a href="https://www.instagram.com/frameflash_productions/" class="fa fa-instagram"></a>
-    <a href="https://www.youtube.com/@FrameFlashProductions" class="fa fa-youtube"></a>
-    <a href="https://www.linkedin.com/in/frameflashproductions/" class="fa fa-linkedin"></a>
-    
+  <div class="contact-grid">
+    <div class="contact-item">
+      <b>Email</b>
+      <span>frameflash.production@gmail.com</span>
     </div>
-  </footer>
-  </section>
-  </main><script>
-const toggleBtn = document.querySelector(".menu-toggle");
-const menu = document.querySelector(".Functionalities");
-toggleBtn.addEventListener("click", ()=> menu.classList.toggle("show"));
+
+        <div class="contact-item">
+      <b>LinkedIn</b>
+      <a href="https://www.linkedin.com/company/frameflash-productions/"><span>@FrameFlash Productions</span></a>
+    </div>
+
+        <div class="contact-item">
+      <b>X</b>
+      <a href="https://x.com/FrameFlashprod"><span>@FrameFlash Productions</span></a>
+    </div>
+    <div class="contact-item">
+      <b>Instagram</b>
+      <a href="https://www.instagram.com/frameflash_productions/"><span>@frameflash_productions</span></a>
+    </div>
+
+    <div class="contact-item">
+      <b>Location</b>
+      <span>Hyderabad,Telangana,India
+      </span>
+    </div>
+
+    <div class="contact-item">
+      <b>Response</b>
+      <span>We aim to respond promptly to all serious inquiries.</span>
+    </div>
+  </div>
+</section>
+    <canvas id="smoke"></canvas>
+<footer>
+  © 2025 FrameFlash Productions · Where Ideas Become Motion
+</footer>
+
+<script>
+  /* mobile menu */
+  const menuBtn = document.querySelector(".menu-btn");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const overlay = document.querySelector(".menu-overlay");
+
+  menuBtn.onclick = () => {
+    mobileMenu.classList.add("open");
+    overlay.classList.add("show");
+  };
+
+  overlay.onclick = () => {
+    mobileMenu.classList.remove("open");
+    overlay.classList.remove("show");
+  };
+
+  /* reveal animation */
+  const grid = document.querySelector(".contact-grid");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting && grid.classList.add("visible"));
+  }, { threshold: 0.2 });
+
+  observer.observe(grid);
+(function(){
+  if (window.innerWidth < 900) return;
+  const c = document.getElementById("smoke");
+  if (!c) return;
+  const ctx = c.getContext("2d");
+  let w,h,mouseX=0,mouseY=0;
+
+  function resize(){
+    w=c.width=innerWidth;
+    h=c.height=innerHeight;
+  }
+  resize(); addEventListener("resize",resize);
+
+  addEventListener("mousemove",e=>{
+    mouseX=e.clientX;
+    mouseY=e.clientY;
+  });
+
+  const blobs=[...Array(8)].map(()=>({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    r:250+Math.random()*200,
+    vx:(Math.random()-.5)*.1,
+    vy:(Math.random()-.5)*.1
+  }));
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    blobs.forEach(b=>{
+      b.x+=b.vx+(mouseX-b.x)*.00002;
+      b.y+=b.vy+(mouseY-b.y)*.00002;
+      if(b.x<-b.r)b.x=w+b.r;
+      if(b.x>w+b.r)b.x=-b.r;
+      if(b.y<-b.r)b.y=h+b.r;
+      if(b.y>h+b.r)b.y=-b.r;
+
+      const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,"rgba(150,30,30,.2)");
+      g.addColorStop(1,"rgba(150,30,30,0)");
+      ctx.fillStyle=g;
+      ctx.beginPath();
+      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 </script>
 
-    </body>
-    </html>
+</body>
+</html>

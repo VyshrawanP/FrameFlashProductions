@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — FrameFlash Productions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#0a0a0a;
+  --fg:#f5f5f5;
+  --muted:#9a9a9a;
+  --ease:cubic-bezier(0.19,1,0.22,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;overflow-x:hidden}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Inter,sans-serif;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:22px 64px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(10px);
+  z-index:20;
+}
+.brand{font-weight:500;letter-spacing:1px}
+.desktop-nav a{
+  margin-left:32px;
+  font-size:.9rem;
+  color:var(--muted);
+}
+.desktop-nav a:hover{color:var(--fg)}
+
+.menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  font-size:1.6rem;
+  color:var(--fg);
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:0;
+  width:70vw;
+  max-width:300px;
+  height:100vh;
+  background:#111;
+  padding:100px 40px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  transform:translateX(100%);
+  transition:transform .8s var(--ease);
+  z-index:200;
+}
+.mobile-menu.open{transform:translateX(0)}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .6s var(--ease);
+  z-index:150;
+}
+.menu-overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* PAGE */
+main{
+  padding-top:160px;
+  padding-bottom:120px;
+  max-width:1200px;
+  margin:auto;
+  padding-inline:20px;
+}
+
+main h1{
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  font-weight:500;
+  margin-bottom:80px;
+  text-align:center;
+}
+
+/* PROJECT LIST */
+.project{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  margin-bottom:140px;
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 1s var(--ease);
+}
+.project.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.project img{
+  width:100%;
+  border-radius:10px;
+  transition:transform 1s var(--ease);
+}
+.project:hover img{
+  transform:scale(1.03);
+}
+
+.project-info h2{
+  font-weight:500;
+  font-size:2rem;
+}
+.project-info p{
+  color:var(--muted);
+  margin:18px 0 26px;
+  max-width:420px;
+}
+.project-info a{
+  font-size:.9rem;
+  border-bottom:1px solid var(--fg);
+  padding-bottom:4px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:60px 20px;
+  color:var(--muted);
+  font-size:.85rem;
+}
+#smoke {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(40px);
+  opacity: .3;
+}
+
+/* NAV MUST STAY ABOVE EVERYTHING */
+header {
+  position: fixed;
+  z-index: 20;
+}
+
+/* MAIN CONTENT LAYER */
+main,
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{padding:20px 30px}
+  .desktop-nav{display:none}
+  .menu-btn{display:block}
+
+  .project{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+    .brand img{
+      width: 70px;
+      height: 70px;
+    }
+</style>
+</head>
+
+<body>
+    <canvas id="smoke"></canvas>
+
+<header>
+    <div class="brand">
+    <img src="/logos/fflogo.png">
+
+  </div>
+  <nav class="desktop-nav">
+    <a href="/index.html">Home</a>
+    <a href="/project.html">Projects</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacypolicy.html">Privacy</a>
+  </nav>
+  <button class="menu-btn">☰</button>
+</header>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="menu-overlay"></div>
+
+<main>
+  <h1>Projects</h1>
+
+  <div class="project">
+    <img src="logos/cipher.jpg" alt="Cipher">
+    <div class="project-info">
+      <h2>CIPHER</h2>
+      <p>
+       Cipher is a gripping new mystery from FrameFlash Productions, where “the silence cracked, the pattern bled, and the cipher unlocked.
+      </p>
+      <a href="cipher.html">View Project →</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <img src="logos/grey.jpg" alt="GREY">
+    <div class="project-info">
+      <h2>GREY</h2>
+      <p>
+        GREY is a heartfelt new short from FrameFlash Productions — an intimate journey into life’s quiet contrasts.
+      </p>
+      <a href="grey.html">View Project →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 FrameFlash Productions · Where Ideas Become Motion
+</footer>
+
+<script>
+/* MENU */
+const menuBtn=document.querySelector(".menu-btn");
+const mobileMenu=document.querySelector(".mobile-menu");
+const overlay=document.querySelector(".menu-overlay");
+
+menuBtn.onclick=()=>{
+  mobileMenu.classList.add("open");
+  overlay.classList.add("show");
+};
+overlay.onclick=()=>{
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("show");
+};
+
+/* REVEAL */
+const projects=document.querySelectorAll(".project");
+const observer=new IntersectionObserver(
+  entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add("visible");
+        observer.unobserve(e.target);
+      }
+    });
+  },
+  {threshold:.25, rootMargin:"0px 0px -100px 0px"}
+);
+projects.forEach(p=>observer.observe(p));
+
+(function(){
+  if (window.innerWidth < 900) return;
+  const c = document.getElementById("smoke");
+  if (!c) return;
+  const ctx = c.getContext("2d");
+  let w,h,mouseX=0,mouseY=0;
+
+  function resize(){
+    w=c.width=innerWidth;
+    h=c.height=innerHeight;
+  }
+  resize(); addEventListener("resize",resize);
+
+  addEventListener("mousemove",e=>{
+    mouseX=e.clientX;
+    mouseY=e.clientY;
+  });
+
+  const blobs=[...Array(8)].map(()=>({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    r:250+Math.random()*200,
+    vx:(Math.random()-.5)*.1,
+    vy:(Math.random()-.5)*.1
+  }));
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    blobs.forEach(b=>{
+      b.x+=b.vx+(mouseX-b.x)*.00002;
+      b.y+=b.vy+(mouseY-b.y)*.00002;
+      if(b.x<-b.r)b.x=w+b.r;
+      if(b.x>w+b.r)b.x=-b.r;
+      if(b.y<-b.r)b.y=h+b.r;
+      if(b.y>h+b.r)b.y=-b.r;
+
+      const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,"rgba(150,30,30,.2)");
+      g.addColorStop(1,"rgba(150,30,30,0)");
+      ctx.fillStyle=g;
+      ctx.beginPath();
+      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>
