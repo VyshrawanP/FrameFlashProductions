@@ -17,10 +17,6 @@
       --muted: #9a9a9a;
       --ease: cubic-bezier(0.19, 1, 0.22, 1);
     }
-    .brand img{
-      width: 70px;
-      height: 70px;
-    }
 
     * {
       margin: 0;
@@ -51,12 +47,12 @@
       justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(10px);
-      z-index: 100;
+      z-index: 20;
     }
 
-    .brand {
-      font-weight: 5000;
-      letter-spacing: 1px;
+    .brand img {
+      width: 70px;
+      height: 70px;
     }
 
     .desktop-nav a {
@@ -67,52 +63,6 @@
 
     .desktop-nav a:hover {
       color: var(--fg);
-    }
-
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      color: var(--fg);
-      cursor: pointer;
-    }
-
-    /* ================= MOBILE MENU ================= */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 70%;
-      max-width: 300px;
-      height: 100vh;
-      background: #111;
-      padding: 100px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      transform: translateX(100%);
-      transition: transform 0.8s var(--ease);
-      z-index: 200;
-    }
-
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s var(--ease);
-      z-index: 150;
-    }
-
-    .menu-overlay.show {
-      opacity: 1;
-      pointer-events: all;
     }
 
     /* ================= HERO ================= */
@@ -133,7 +83,6 @@
 
     .hero p {
       color: var(--muted);
-      font-size: 1rem;
     }
 
     .banner {
@@ -152,32 +101,29 @@
       max-width: 1200px;
       margin: auto;
     }
-.member {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 60px;
-  margin-bottom: 120px;
 
-  /* HARD HIDE */
-  opacity: 0;
-  transform: translateY(80px);
-  pointer-events: none;
-  visibility: hidden;
+    .member {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+      margin-bottom: 120px;
 
-  transition: 
-    opacity 0.8s var(--ease),
-    transform 0.8s var(--ease),
-    visibility 0s linear 0.8s;
-}
+      opacity: 0;
+      transform: translateY(80px);
+      visibility: hidden;
 
-.member.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  visibility: visible;
-  transition-delay: 0s;
-}
+      transition:
+        opacity 0.8s var(--ease),
+        transform 0.8s var(--ease),
+        visibility 0s linear 0.8s;
+    }
 
+    .member.visible {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      transition-delay: 0s;
+    }
 
     .member img {
       width: 200px;
@@ -186,16 +132,15 @@
       object-fit: cover;
     }
 
+    .member b {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
     .member p {
       color: var(--muted);
       max-width: 600px;
-    }
-
-    .member b {
-      color: var(--fg);
-      font-weight: 500;
-      display: block;
-      margin-bottom: 12px;
     }
 
     /* ================= FOOTER ================= */
@@ -205,7 +150,61 @@
       color: var(--muted);
       font-size: 0.85rem;
     }
- 
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background: #111;
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transform: translateX(100%);
+  transition: transform 0.6s var(--ease);
+  z-index: 200;
+}
+
+.mobile-menu a {
+  font-size: 1.1rem;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+  z-index: 150;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 900px) {
+  .menu-btn {
+    display: block;
+  }
+}
 
     /* ================= RESPONSIVE ================= */
     @media (max-width: 900px) {
@@ -217,10 +216,6 @@
         display: none;
       }
 
-      .menu-btn {
-        display: block;
-      }
-
       .team {
         padding: 100px 30px;
       }
@@ -230,38 +225,14 @@
         gap: 30px;
       }
     }
-    #smoke {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(40px);
-  opacity: .3;
-}
-
-/* NAV MUST STAY ABOVE EVERYTHING */
-header {
-  position: fixed;
-  z-index: 20;
-}
-
-/* MAIN CONTENT LAYER */
-main,
-section,
-footer {
-  position: relative;
-  z-index: 1;
-}
   </style>
 </head>
 
 <body>
-  <canvas id="smoke"></canvas>
 
 <header>
   <div class="brand">
-    <img src="/logos/fflogo.png">
-
+    <img src="/logos/fflogo.png" alt="FrameFlash">
   </div>
 
   <nav class="desktop-nav">
@@ -269,27 +240,26 @@ footer {
     <a href="/project.html">Projects</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
-    <a href="/privacypolicy.html">Privacy</a>
   </nav>
-
-  <button class="menu-btn">☰</button>
-</header>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
 
 <div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacypolicy.html">Privacy</a>
+  <a href="/index.html">Home</a>
+  <a href="/project.html">Projects</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
 </div>
+
 <div class="menu-overlay"></div>
+
+</header>
 
 <section class="hero">
   <h1>About Us</h1>
   <p>
-FrameFlash Productions is built by a group of people who share the same love for cinema. Each of
-us brings something different — whether it’s storytelling, visuals, music, or design — and that mix
-is what gives our work its character. More than just a team, we’re a bunch of creators who believe
-in making films that stay with people
+    FrameFlash Productions is built by people who share the same love for cinema.
+    Each of us brings something different — storytelling, visuals, music, design —
+    shaping work that stays with people.
   </p>
 
   <div class="banner">
@@ -297,57 +267,44 @@ in making films that stay with people
   </div>
 </section>
 
-<section class="team">
-  <div class="member">
-    <img src="/logos/jayanth.png">
-    <p>
-      <b>Jayanth — Founder, Director & Creator</b>
-
-The one who started it all, bringing ideas to life and steering every project from
-vision to execution. Always pushing for something fresh, with an eye on the bigger
-picture.
-    </p>
-  </div>
-
-  <div class="member">
-    <img src="/logos/sampath.jpeg">
-    <p>
-      <b>Sampath — Co-Founder & Cinematographer</b>
-      Handles the camera with ease, turning simple shots into frames that carry depth and
-mood. Focused on details that often go unnoticed but make all the difference.
-    </p>
-  </div>
-
-   
-</section>
+<!-- TEAM (DYNAMIC FROM SUPABASE) -->
+<section class="team" id="team"></section>
 
 <footer>
   © 2025 FrameFlash Productions · Where Ideas Become Motion
 </footer>
 
 <script>
-  /* mobile menu */
-  const menuBtn = document.querySelector(".menu-btn");
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const overlay = document.querySelector(".menu-overlay");
+  /* ================= MOBILE MENU ================= */
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+const overlay = document.querySelector(".menu-overlay");
 
-  menuBtn.onclick = () => {
-    mobileMenu.classList.add("open");
-    overlay.classList.add("show");
-  };
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.add("open");
+  overlay.classList.add("show");
+});
 
-  overlay.onclick = () => {
+overlay.addEventListener("click", () => {
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("show");
+});
+
+// close menu on link click
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
     mobileMenu.classList.remove("open");
     overlay.classList.remove("show");
-  };
-const members = document.querySelectorAll(".member");
+  });
+});
 
+/* ================= INTERSECTION OBSERVER ================= */
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // animate only once
+        observer.unobserve(entry.target);
       }
     });
   },
@@ -357,55 +314,61 @@ const observer = new IntersectionObserver(
   }
 );
 
-members.forEach(member => observer.observe(member));
-(function(){
-  if (window.innerWidth < 900) return;
-  const c = document.getElementById("smoke");
-  if (!c) return;
-  const ctx = c.getContext("2d");
-  let w,h,mouseX=0,mouseY=0;
+function observeMembers() {
+  document.querySelectorAll(".member").forEach(m => {
+    observer.observe(m);
+  });
+}
 
-  function resize(){
-    w=c.width=innerWidth;
-    h=c.height=innerHeight;
+/* ================= LOAD ABOUT US ================= */
+async function loadTeam() {
+  // 1. Load env from Netlify function
+  const cfg = await fetch("/.netlify/functions/config")
+    .then(r => r.json());
+
+  // 2. Fetch from Supabase REST
+  const res = await fetch(
+    `${cfg.SUPABASE_URL}/rest/v1/About%20Us?select=name,role,about,instagram,image`,
+    {
+      headers: {
+        apikey: cfg.SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${cfg.SUPABASE_ANON_KEY}`,
+        Accept: "application/json"
+      }
+    }
+  );
+
+  const data = await res.json();
+  console.log("About Us data:", data);
+
+  if (!Array.isArray(data) || data.length === 0) {
+    console.warn("No About Us data found");
+    return;
   }
-  resize(); addEventListener("resize",resize);
 
-  addEventListener("mousemove",e=>{
-    mouseX=e.clientX;
-    mouseY=e.clientY;
+  const container = document.getElementById("team");
+
+  data.forEach(m => {
+    const div = document.createElement("div");
+    div.className = "member";
+
+    div.innerHTML = `
+      <img src="${m.image}" alt="${m.name}">
+      <p>
+        <b>${m.name} — ${m.role}</b>
+        ${m.about ?? ""}
+        ${m.instagram ? `<br><a href="${m.instagram}" target="_blank">Instagram</a>` : ""}
+      </p>
+    `;
+
+    container.appendChild(div);
   });
 
-  const blobs=[...Array(8)].map(()=>({
-    x:Math.random()*w,
-    y:Math.random()*h,
-    r:250+Math.random()*200,
-    vx:(Math.random()-.5)*.1,
-    vy:(Math.random()-.5)*.1
-  }));
+  observeMembers();
+}
 
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    blobs.forEach(b=>{
-      b.x+=b.vx+(mouseX-b.x)*.00002;
-      b.y+=b.vy+(mouseY-b.y)*.00002;
-      if(b.x<-b.r)b.x=w+b.r;
-      if(b.x>w+b.r)b.x=-b.r;
-      if(b.y<-b.r)b.y=h+b.r;
-      if(b.y>h+b.r)b.y=-b.r;
-
-      const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
-      g.addColorStop(0,"rgba(150,30,30,.2)");
-      g.addColorStop(1,"rgba(150,30,30,0)");
-      ctx.fillStyle=g;
-      ctx.beginPath();
-      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
+/* ================= RUN ================= */
+loadTeam();
 </script>
 
 </body>

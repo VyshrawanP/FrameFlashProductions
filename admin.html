@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input id="title" placeholder="Title">
+<textarea id="description" placeholder="Description"></textarea>
+<input type="file" id="image">
+<button onclick="upload()">Upload</button>
+<script>
+async function upload() {
+  const file = image.files[0];
+  if (!file) return alert("Select a file");
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch("/.netlify/functions/upload", {
+    method: "POST",
+    body: formData
+  });
+
+  const text = await res.text();
+
+  try {
+    const data = JSON.parse(text);
+
+    if (!res.ok) {
+      console.error(data);
+      alert("Upload failed");
+      return;
+    }
+
+    alert("Uploaded!");
+    console.log("Image URL:", data.url);
+  } catch {
+    console.error("Server response:", text);
+    alert("Server error — check console");
+  }
+}
+async function upload() {
+  const formData = new FormData();
+  formData.append("file", image.files[0]);
+  formData.append("title", title.value);
+  formData.append("description", description.value);
+
+  const res = await fetch("/.netlify/functions/upload", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+
+  // save locally (for now)
+  localStorage.setItem("lastUpload", JSON.stringify(data));
+
+  // go to image page
+  window.location.href = "image.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title"></title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f5f5f5;
+      --muted: #9a9a9a;
+      --ease: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 22px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .brand img { width: 70px; height: 70px; }
+
+    .desktop-nav a {
+      margin-left: 32px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .desktop-nav a:hover { color: var(--fg); }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--fg);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: #111;
+      padding: 100px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      transform: translateX(100%);
+      transition: transform 0.8s var(--ease);
+      z-index: 200;
+    }
+
+    .mobile-menu.open { transform: translateX(0); }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s var(--ease);
+      z-index: 150;
+    }
+
+    .menu-overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .hero {
+      padding-top: 160px;
+      padding-bottom: 120px;
+      max-width: 1100px;
+      margin: auto;
+      padding-inline: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 30px;
+    }
+
+    .hero a {
+      display: inline-block;
+      border-bottom: 1px solid var(--fg);
+      padding-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .credits {
+      padding: 120px 20px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s var(--ease);
+    }
+
+    .credits.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .credits h2 {
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+
+    .credit-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .video {
+      padding: 120px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 20px 30px; }
+      .desktop-nav { display: none; }
+      .menu-btn { display: block; }
+      .hero { grid-template-columns: 1fr; gap: 40px; }
+      .credit-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="/logos/fflogo.png">
+  </div>
+
+  <nav class="desktop-nav">
+    <a href="/index.html">Home</a>
+    <a href="/movies.html">Movies</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacypolicy.html">Privacy</a>
+  </nav>
+
+  <button class="menu-btn">☰</button>
+</header>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacypolicy.html">Privacy</a>
+</div>
+<div class="menu-overlay"></div>
+
+<section class="hero">
+  <img id="hero-image" src="" alt="">
+  <div>
+    <h1 id="hero-title"></h1>
+    <p id="hero-description"></p>
+    <a id="hero-link" target="_blank">Watch on YouTube →</a>
+  </div>
+</section>
+
+<section class="credits">
+  <h2>Credits</h2>
+  <div class="credit-list" id="credits"></div>
+</section>
+
+<section class="video">
+  <iframe id="hero-trailer" allowfullscreen></iframe>
+</section>
+
+<footer>
+  © 2025 FrameFlash Productions · Where Ideas Become Motion
+</footer>
+
+<script>
+/* ================= MOVIES DB ================= */
+
+const movies = [
+  {
+    vp: "cipher",
+    title: "CIPHER",
+    description: `Cipher is a gripping new mystery from FrameFlash Productions, where “the silence cracked, the pattern bled, and the cipher unlocked.”
+Directed and encoded by Jayanth, with a story by Vinay and an original score by Rahul Madeti.`,
+    image: "https://res.cloudinary.com/dbfvg7dnm/image/upload/v1766385726/cipher_syrlkr.jpg",
+    watch: "https://www.youtube.com/watch?v=5REUF6cl-2A",
+    trailer: "https://www.youtube.com/embed/wsmZUo-dDN0",
+    credits: [
+      "Directed & Encoded by — Jayanth",
+      "Story — Vinay",
+      "Original Score — Rahul Madeti",
+      "Starring — Anish, Steve Reagen",
+      "Cinematography — Sampath",
+      "Editing — Lalith",
+      "Graphics — Rhythm",
+      "A FrameFlash Productions Original"
+    ]
+  },
+  {
+    vp: "grey",
+    title: "GREY",
+    description: `GREY is a heartfelt new short from FrameFlash Productions — an intimate journey into life’s quiet contrasts.`,
+    image: "https://res.cloudinary.com/dbfvg7dnm/image/upload/v1766385741/grey_gxdrir.jpg",
+    watch: "https://www.youtube.com/watch?v=0dxm-48dRm0",
+    trailer: "https://www.youtube.com/embed/0dxm-48dRm0",
+    credits: [
+      "Directed by — Jayanth",
+      "A FrameFlash Productions Original"
+    ]
+  }
+];
+
+/* ================= LOAD ================= */
+
+const vp = new URLSearchParams(location.search).get("vp") || "cipher";
+const movie = movies.find(m => m.vp === vp);
+
+if (!movie) {
+  document.body.innerHTML = "<h1 style='margin-top:200px;text-align:center'>404</h1>";
+} else {
+  document.title = `${movie.title} — FrameFlash Productions`;
+  document.getElementById("hero-title").textContent = movie.title;
+  document.getElementById("hero-description").textContent = movie.description;
+  document.getElementById("hero-image").src = movie.image;
+  document.getElementById("hero-image").alt = movie.title;
+  document.getElementById("hero-link").href = movie.watch;
+  document.getElementById("hero-trailer").src = movie.trailer;
+
+  document.getElementById("credits").innerHTML =
+    movie.credits.map(c => `<div>${c}</div>`).join("");
+}
+
+/* mobile menu */
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+const overlay = document.querySelector(".menu-overlay");
+
+menuBtn.onclick = () => {
+  mobileMenu.classList.add("open");
+  overlay.classList.add("show");
+};
+overlay.onclick = () => {
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("show");
+};
+
+/* reveal credits */
+const creditsEl = document.querySelector(".credits");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => e.isIntersecting && creditsEl.classList.add("visible"));
+});
+observer.observe(creditsEl);
+</script>
+
+</body>
+</html>

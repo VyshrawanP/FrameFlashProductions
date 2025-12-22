@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "cloudinary": "^2.8.0",
+    "firebase": "^12.7.0",
+    "parse-multipart": "^1.0.4"
+  },
+  "name": "frameflash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VyshrawanP/FrameFlashProductions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VyshrawanP/FrameFlashProductions/issues"
+  },
+  "homepage": "https://github.com/VyshrawanP/FrameFlashProductions#readme"
+}
