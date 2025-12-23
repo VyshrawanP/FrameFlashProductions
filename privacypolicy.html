@@ -64,7 +64,7 @@ header {
 }
 .desktop-nav a:hover { color:var(--fg); }
 
-/* MOBILE MENU SYSTEM (HARD RULES) */
+/* MOBILE MENU SYSTEM */
 .menu-btn { display:none; background:none; border:none; font-size:1.6rem; color:var(--fg); cursor:pointer; }
 .mobile-menu, .menu-overlay { display:none; }
 
@@ -142,17 +142,40 @@ footer {
     opacity:1;
     pointer-events:auto;
   }
-      .brand img{
-      width: 70px;
-      height: 70px;
-    }
 
   .policy-box { padding:40px 30px; }
+
+  /* MOBILE PRIVACY USABILITY FEATURE */
+  .policy-box p {
+    cursor:pointer;
+    position:relative;
+    padding-right:24px;
+  }
+  .policy-box p::after {
+    content:"+";
+    position:absolute;
+    right:0;
+    top:0;
+    color:var(--muted);
+  }
+  .policy-box p.open::after {
+    content:"–";
+  }
+  .policy-box p:not(.open) {
+    max-height:1.6em;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+  }
+  .policy-box p.open {
+    white-space:normal;
+  }
 }
-    .brand img{
-      width: 70px;
-      height: 70px;
-    }
+
+.brand img {
+  width:70px;
+  height:70px;
+}
 </style>
 </head>
 
@@ -161,9 +184,8 @@ footer {
 <canvas id="smoke"></canvas>
 
 <header>
-   <div class="brand">
-    <img src="/logos/fflogo.png">
-
+  <div class="brand">
+    <img src="/logos/fflogo.png" alt="FrameFlash Productions">
   </div>
   <nav class="desktop-nav">
     <a href="/index.html">Home</a>
@@ -176,10 +198,11 @@ footer {
 </header>
 
 <div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacypolicy.html">Privacy</a>
+  <a href="/index.html">Home</a>
+  <a href="/project.html">Projects</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/privacypolicy.html">Privacy</a>
 </div>
 <div class="menu-overlay"></div>
 
@@ -216,17 +239,25 @@ footer {
 <script>
 /* MOBILE MENU */
 const menuBtn = document.querySelector(".menu-btn");
-const menu = document.querySelector(".mobile-menu");
+const mobileMenu = document.querySelector(".mobile-menu");
 const overlay = document.querySelector(".menu-overlay");
 
 menuBtn.onclick = () => {
-  menu.classList.add("open");
+  mobileMenu.classList.add("open");
   overlay.classList.add("show");
 };
+
 overlay.onclick = () => {
-  menu.classList.remove("open");
+  mobileMenu.classList.remove("open");
   overlay.classList.remove("show");
 };
+
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.onclick = () => {
+    mobileMenu.classList.remove("open");
+    overlay.classList.remove("show");
+  };
+});
 
 /* REVEAL */
 const box = document.querySelector(".policy-box");
@@ -234,7 +265,21 @@ new IntersectionObserver(e=>{
   if(e[0].isIntersecting) box.classList.add("visible");
 },{threshold:.3}).observe(box);
 
-/* SMOKE (DESKTOP ONLY, SAFE) */
+/* MOBILE COLLAPSIBLE POLICY */
+if (window.innerWidth < 900) {
+  const paragraphs = document.querySelectorAll(".policy-box p");
+  paragraphs.forEach((p, i) => {
+    if (i === 0) {
+      p.classList.add("open");
+      return;
+    }
+    p.addEventListener("click", () => {
+      p.classList.toggle("open");
+    });
+  });
+}
+
+/* SMOKE (DESKTOP ONLY) */
 (function(){
   if (window.innerWidth < 900) return;
   const c = document.getElementById("smoke");

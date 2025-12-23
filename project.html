@@ -14,6 +14,9 @@
 
 <body>
     <canvas id="smoke"></canvas>
+    <div id="loader" class="loader-overlay">
+  <div class="spinner"></div>
+</div>
 
 <header>
     <div class="brand">
@@ -38,9 +41,18 @@
 </div>
 <div class="menu-overlay"></div>
 
-<main>
+<main id="projects-container">
   <h1>Projects</h1>
+
+  <!-- local loader -->
+  <div id="projects-loader" class="projects-loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- dynamic content goes here -->
+  <div id="projects-list"></div>
 </main>
+
   
 
 <footer>
@@ -49,6 +61,7 @@
 
 
 <script>
+  
 const movies = [
   {
     title: "CIPHER",
@@ -65,6 +78,52 @@ const movies = [
 ];
 
  
+async function loadProjects() {
+  const loader = document.getElementById("projects-loader");
+  const list = document.getElementById("projects-list");
+  loader.classList.add("hidden");
+
+
+  try {
+    loader.style.display = "flex";
+
+    const cfg = await fetch("/.netlify/functions/config").then(r => r.json());
+
+    const res = await fetch(
+      `${cfg.SUPABASE_URL}/rest/v1/movies?select=title,about_lite,thumbnail_url,vp&order=created_at.asc`,
+      {
+        headers: { apikey: cfg.SUPABASE_ANON_KEY }
+      }
+    );
+
+    const movies = await res.json();
+
+    list.innerHTML = "";
+
+    movies.forEach(m => {
+      const div = document.createElement("div");
+      div.className = "project";
+
+      div.innerHTML = `
+        <img src="${m.thumbnail_url}" alt="${m.title}">
+        <div class="project-info">
+          <h2>${m.title}</h2>
+          <p>${m.about_lite}</p>
+          <a href="${m.vp}.html">View Project →</a>
+        </div>
+      `;
+
+      list.appendChild(div);
+    });
+
+  } catch (e) {
+    list.innerHTML = "<p>Failed to load projects.</p>";
+    console.error(e);
+  } finally {
+    loader.style.display = "none";
+  }
+}
+
 
 
 
